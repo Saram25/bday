@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Darshiii babyyy!!</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet"> <!-- Importing Great Vibes font -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f5f5f5;
+      overflow: hidden;
+    }
+    .card {
+      width: 500px; /* Increased card size */
+      height: 500px; /* Increased card size */
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      background: linear-gradient(135deg, #a1c4fd, #c2e9fb); /* Pastel blue gradient */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 30px;
+      transition: all 0.3s;
+    }
+    .card img {
+      width: 250px; /* Increased image size */
+      height: 250px; /* Increased image size */
+      object-fit: cover;
+      margin-bottom: 20px;
+      border-radius: 15px; /* Adds rounded corners */
+    }
+    .card h1 {
+      font-size: 32px; /* Larger font for heading */
+      color: #333;
+      margin-bottom: 15px;
+    }
+    .button {
+      background-color: #ff6347;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: #ff4500;
+    }
+    .open-button {
+      background-color: #2c3e50; /* Dark blue for the "Open" button */
+    }
+    .open-button:hover {
+      background-color: #34495e; /* Slightly lighter dark blue on hover */
+    }
+    .message-page {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f); /* Soft pastel gradient */
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 800px; /* Increased size for the second-page card */
+      max-width: 90%;
+    }
+    .message-text {
+      flex: 1;
+      padding: 20px;
+      font-size: 18px;
+      font-family: 'Great Vibes', cursive; /* Elegant calligraphy font */
+    }
+    .image-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative; /* For positioning the candles */
+    }
+    .image-container img {
+      width: 200px;
+      margin-bottom: 15px;
+    }
+    .candles {
+      color: #ff6347;
+      font-size: 30px;
+      position: absolute;
+      top: 20px; /* Moves candles slightly above the cake */
+    }
+    /* Confetti Styles */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ffcd3c;
+      animation: fall 2.5s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-100vh); }
+      100% { transform: translateY(100vh); }
+    }
+    /* Styling the back button to be placed below the cake */
+    .back-button {
+      margin-top: 20px; /* Space between cake and button */
+    }
+
+    /* Media Queries for mobile responsiveness */
+    @media (max-width: 768px) {
+      .card {
+        width: 90%;
+        height: auto;
+      }
+      .card img {
+        width: 200px;
+        height: 200px;
+      }
+      .card h1 {
+        font-size: 28px;
+      }
+      .message-page {
+        width: 90%;
+        padding: 20px;
+      }
+      .message-text {
+        font-size: 16px;
+      }
+      .image-container img {
+        width: 150px;
+      }
+      .button {
+        padding: 10px 20px;
+      }
+      .back-button {
+        padding: 10px 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        width: 90%;
+        height: auto;
+      }
+      .card img {
+        width: 180px;
+        height: 180px;
+      }
+      .card h1 {
+        font-size: 24px;
+      }
+      .message-page {
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+      }
+      .message-text {
+        font-size: 14px;
+      }
+      .image-container img {
+        width: 130px;
+      }
+      .button {
+        padding: 8px 16px;
+      }
+      .back-button {
+        padding: 8px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="card" id="landingCard">
+  <img src="darsh.jpg" alt="Birthday Photo">
+  <h1>Happy Birthday Darshiii babyyy!</h1>
+  <button class="button open-button" onclick="openMessagePage()">Open</button>
+</div>
+
+<div class="message-page" id="messagePage">
+  <div class="message-text">
+    <p>Dear Darshii,</p>
+    <p>I was meant to send this to you on your birthday, but I'm a little late. This is something I do, and I wanted to give you a glimpse of it. I hope this makes you smile, as you always bring joy to my life. I'll always cherish and love you, babyyy. Be the cutieee you are always.❤ </p>
+  </div>
+  <div class="image-container">
+    <div id="candles" class="candles">🕯️🕯️🕯️🕯️</div>
+    <img src="cake.png" alt="Boy with Cake">
+    <button class="button" onclick="blowCandles()">Blow Off Candles</button>
+    <!-- Added back button below the cake -->
+    <button class="button back-button" onclick="goBack()">Back</button>
+  </div>
+</div>
+
+<!-- Confetti script -->
+<script>
+  function openMessagePage() {
+    document.getElementById("landingCard").style.display = "none";
+    document.getElementById("messagePage").style.display = "flex";
+    startConfetti();
+  }
+
+  function blowCandles() {
+    // Change the candle emojis to blowing ones but keep them visible
+    document.getElementById("candles").textContent = "💨💨💨💨";
+  }
+
+  function startConfetti() {
+    for (let i = 0; i < 100; i++) {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor = getRandomColor();
+      confetti.style.animationDuration = Math.random() * 3 + 2 + "s";
+      document.body.appendChild(confetti);
+
+      setTimeout(() => confetti.remove(), 3000); // Remove confetti after falling
+    }
+  }
+
+  function getRandomColor() {
+    const colors = ["#ffcd3c", "#ff6347", "#48bfe3", "#fbc2eb", "#a6c1ee"];
+    return colors[Math.floor(Math.random() * colors.length)];
+  }
+
+  // Function to go back to the first page
+  function goBack() {
+    document.getElementById("messagePage").style.display = "none";
+    document.getElementById("landingCard").style.display = "flex";
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
